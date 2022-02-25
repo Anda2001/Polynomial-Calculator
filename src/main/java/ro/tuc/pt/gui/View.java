@@ -45,11 +45,11 @@ public class View extends JFrame {
     private void prepareNumbersPanel() {
         this.polynomialPanel = new JPanel();
         this.polynomialPanel.setLayout(new GridLayout(5, 2));
-        this.firstPolynomialLabel = new JLabel("First number", JLabel.CENTER);
+        this.firstPolynomialLabel = new JLabel("First polynomial", JLabel.CENTER);
         this.polynomialPanel.add(this.firstPolynomialLabel);
         this.firstPolynomialTextField = new JTextField();
         this.polynomialPanel.add(this.firstPolynomialTextField);
-        this.secondPolynomialLabel = new JLabel("Second number", JLabel.CENTER);
+        this.secondPolynomialLabel = new JLabel("Second polynomial", JLabel.CENTER);
         this.polynomialPanel.add(secondPolynomialLabel);
         this.secondPolynomialTextField = new JTextField();
         this.polynomialPanel.add(secondPolynomialTextField);
