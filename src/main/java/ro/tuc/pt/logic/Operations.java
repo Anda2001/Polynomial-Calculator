@@ -1,16 +1,19 @@
 package ro.tuc.pt.logic;
 
+import ro.tuc.pt.model.Polynomial;
+
 public class Operations {
 
-    public int add(int firstPolynomial, int secondPolynomial) {
-        return firstPolynomial + secondPolynomial;
+    public Polynomial add(Polynomial firstPolynomial, Polynomial secondPolynomial) {
+        return null; //firstPolynomial + secondPolynomial;
     }
 
-    public int subtract(int firstNumber, int secondNumber) {
-        return firstNumber - secondNumber;
+    public Polynomial subtract(Polynomial firstPolynomial, Polynomial secondPolynomial) {
+
+        return null; //firstNumber - secondNumber;
     }
 
-    public int multiply(int firstNumber, int secondNumber) {
-        return firstNumber * secondNumber;
+    public Polynomial multiply(Polynomial firstPolynomial, Polynomial secondPolynomial) {
+        return null;//firstNumber * secondNumber;
     }
 }
