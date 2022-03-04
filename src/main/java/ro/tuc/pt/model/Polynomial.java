@@ -1,9 +1,7 @@
 package ro.tuc.pt.model;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
+
 
 public class Polynomial {
    // public Polynomial getPolynomial() {
@@ -37,14 +35,6 @@ public class Polynomial {
         return stringBuilder.toString();
     }
 
-    public String getIntegerPolinomString() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (Monomial currentMonom : this.getPolynomial()) {
-            stringBuilder.append(currentMonom.getIntMonomString());
-        }
-        return stringBuilder.toString();
-    }
 
     public void displayPolinom() {
         for (Monomial currentMonom : this.getPolynomial()) {
@@ -54,13 +44,7 @@ public class Polynomial {
     }
 
     public void sortByDegree() {
-        polynomial.sort(new Comparator<Monomial>() {
-
-            @Override
-            public int compare(Monomial o1, Monomial o2) {
-                return Integer.compare(o2.getPower(), o1.getPower());
-            }
-        });
+        polynomial.sort((o1, o2) -> Integer.compare(o2.getPower(), o1.getPower()));
     }
 
 

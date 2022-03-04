@@ -44,12 +44,5 @@ public class Monomial {
             return "";
     }
 
-    public String getIntMonomString() {
-        StringBuilder stringBuilder = new StringBuilder();
 
-        if (coefficient != 0)
-            return stringBuilder.append("+ ").append((int)coefficient).append("x^").append(power).append(" ").toString();
-        else
-            return "";
-    }
 }

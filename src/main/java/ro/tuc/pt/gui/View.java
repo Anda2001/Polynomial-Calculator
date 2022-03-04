@@ -84,11 +84,5 @@ public class View extends JFrame {
         resultLabel.setText(result);
     }
 
-   // public String getIntResult() {
-   //     return resultIntegerLabel.getText().toString();
-    //}
 
-   // public void setIntResult(String result) {
-   //    resultIntegerLabel.setText(result);
-   // }
 }

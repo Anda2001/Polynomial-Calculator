@@ -40,7 +40,7 @@ public class Operations {
 
             Monomial searchedMonom = polynomialDiff.findDegree(currentDegree);
             if (searchedMonom == null) {
-                currentCoefficient = 0 - currentCoefficient;
+                currentCoefficient = -currentCoefficient;
                 currentMonomial.setCoefficient(currentCoefficient);
                 polynomialDiff.getPolynomial().add(currentMonomial);
             } else {
