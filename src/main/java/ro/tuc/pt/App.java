@@ -11,7 +11,6 @@ public class App
 
         JFrame frame = new View("Polynomial Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // frame.pack();
         frame.setVisible(true);
     }
 }

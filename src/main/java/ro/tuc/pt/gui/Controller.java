@@ -7,14 +7,15 @@ import ro.tuc.pt.model.Polynomial;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class Controller implements ActionListener {
 
-    private View view;
-    private Polynomial polynomialOne;
-    private Polynomial polynomialTwo;
+    private final View view;
+   // private Polynomial polynomialOne;
+   // private Polynomial polynomialTwo;
 
-    private Operations operations = new Operations();
+    private final Operations operations = new Operations();
 
     public Controller(View v){
         this.view = v;
@@ -22,30 +23,28 @@ public class Controller implements ActionListener {
 
     public Polynomial createPolynomial(String textFieldString) {
         Polynomial currentPolynomial = new Polynomial();
-        String myPolinomialString = textFieldString;
+        String polynomialString = textFieldString;
         try {
-            myPolinomialString = myPolinomialString.replaceAll("\\s", "");
-            if (myPolinomialString.charAt(0) == '+')
-                myPolinomialString = myPolinomialString.substring(1);
+            polynomialString = polynomialString.replaceAll("\\s", ""); //whitespaces
 
-            for (String val : myPolinomialString.split("\\+")) {
-                double coeff = 0;
-                int power = 0;
-                int xPosition = val.indexOf("x");
-                int powPosition = val.indexOf("^");
+            for (String subPolynomial : polynomialString.split("\\+")) {
+                int coefficient;
+                int power;
+                int xPosition = subPolynomial.indexOf("x");
+                int powerPosition = subPolynomial.indexOf("^");
                 try {
 
-                    coeff = Integer.parseInt(val.substring(0, xPosition));
-                    power = Integer.parseInt(val.substring(powPosition + 1));
+                    coefficient = Integer.parseInt(subPolynomial.substring(0, xPosition));
+                    power = Integer.parseInt(subPolynomial.substring(powerPosition + 1));
 
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Bad input! Please respect the format");
+                    JOptionPane.showMessageDialog(null, "Bad input format!");
                     return null;
                 }
 
-                if (coeff != 0) {
-                    Monomial myMonomial = new Monomial(power, coeff);
-                    currentPolynomial.getPolynomial().add(myMonomial);
+                if (coefficient != 0) {
+                    Monomial newMonomial = new Monomial(power, coefficient);
+                    currentPolynomial.getPolynomial().add(newMonomial);
                 }
             }
         } catch (Exception e) {
@@ -54,29 +53,37 @@ public class Controller implements ActionListener {
         return currentPolynomial;
     }
 
-    public Polynomial getPolinomOne() {
+   /* public Polynomial getPolinomOne() {
         return polynomialOne;
-    }
+    }*/
 
-    public Polynomial getPolinomTwo() {
+   /* public Polynomial getPolinomTwo() {
 
         return polynomialTwo;
-    }
+    }*/
 
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
-        if(command == "COMPUTE"){
+        if(Objects.equals(command, "COMPUTE")){
             Polynomial firstPolynomial = createPolynomial(view.getFirstPolynomialTextField().getText());
             Polynomial secondPolynomial = createPolynomial(view.getSecondPolynomialTextField().getText());
             String operation = String.valueOf(view.getOperationsComboBox().getSelectedItem());
             Polynomial result = null;
-            switch(operation){
-                case "Add": result = operations.add(firstPolynomial, secondPolynomial);
-                    break;
-                case "Subtract": result = operations.subtract(firstPolynomial, secondPolynomial);
-                    break;
-                case "Multiply": result = operations.multiply(firstPolynomial, secondPolynomial);
-                    break;
+            switch (operation) {
+                case "Add" -> {
+                    result = operations.add(firstPolynomial, secondPolynomial);
+                    //result = result.add(firstPolynomial, secondPolynomial);
+                    view.setResult(result.getPolinomString());
+                    //view.setIntResult(result.getIntegerPolinomString());
+                   // result.displayPolinom();
+                }
+                case "Subtract" -> {
+                    result = operations.subtract(firstPolynomial, secondPolynomial);
+                    view.setResult(result.getPolinomString());
+                    //view.setIntResult(result.getIntegerPolinomString());
+                   // result.displayPolinom();
+                }
+               // case "Multiply" -> result = operations.multiply(firstPolynomial, secondPolynomial);
             }
             view.getResultPolynomialLabel().setText(String.valueOf(result));
         }
