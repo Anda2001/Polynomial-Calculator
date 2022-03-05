@@ -26,6 +26,7 @@ public class Operations {
 
         polynomialSum.sortByDegree();
 
+
         return polynomialSum;
        // return null; //firstPolynomial + secondPolynomial;
     }

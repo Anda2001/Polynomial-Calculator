@@ -32,7 +32,7 @@ public class Polynomial {
         for (Monomial currentMonom : this.getPolynomial()) {
             stringBuilder.append(currentMonom.getMonomialString());
         }
-        return stringBuilder.toString();
+        return stringBuilder.toString().substring(2);
     }
 
 

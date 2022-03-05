@@ -72,20 +72,17 @@ public class Controller implements ActionListener {
             switch (operation) {
                 case "Add" -> {
                     result = operations.add(firstPolynomial, secondPolynomial);
-                    //result = result.add(firstPolynomial, secondPolynomial);
-                    view.setResult(result.getPolinomString());
-                    //view.setIntResult(result.getIntegerPolinomString());
-                   // result.displayPolinom();
+
                 }
                 case "Subtract" -> {
                     result = operations.subtract(firstPolynomial, secondPolynomial);
-                    view.setResult(result.getPolinomString());
+                    //view.setResult(result.getPolinomString());
                     //view.setIntResult(result.getIntegerPolinomString());
                    // result.displayPolinom();
                 }
                // case "Multiply" -> result = operations.multiply(firstPolynomial, secondPolynomial);
             }
-            view.getResultPolynomialLabel().setText(String.valueOf(result));
+            view.getResultPolynomialLabel().setText(result.getPolinomString());
         }
     }
 
