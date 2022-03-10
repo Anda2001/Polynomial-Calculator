@@ -3,9 +3,14 @@ package ro.tuc.pt.model;
 public class Monomial {
 
     private int power;
-    private int coefficient;
+    private double coefficient;
 
-    public Monomial(int power, int coefficient) {
+    public Monomial() {
+        this.power = 0;
+        this.coefficient = 0;
+    }
+
+    public Monomial(int power, double coefficient) {
         this.power = power;
         this.coefficient = coefficient;
     }
@@ -18,31 +23,87 @@ public class Monomial {
         this.power = power;
     }
 
-    public int getCoefficient() {
+    public double getCoefficient() {
         return coefficient;
     }
 
-    public void setCoefficient(int coefficient) {
+    public void setCoefficient(double coefficient) {
         this.coefficient = coefficient;
     }
 
-    public void displayMonomial() {
-        if (coefficient > 0)
-            System.out.print("+" + coefficient + "x^" + power + " ");
-        else if (coefficient < 0)
-            System.out.print(coefficient + "x^" + power + " ");
-        else
-            System.out.print("+" + 0 + " ");
-    }
-
     public String getMonomialString() {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder monomialString = new StringBuilder();
 
-        if (coefficient != 0)
-            return stringBuilder.append("+ ").append(coefficient).append("x^").append(power).append(" ").toString();
-        else
+        if (coefficient != 0) {
+            if (power == 0) {
+                if (coefficient < 0) {
+                    return monomialString.append(coefficient).append(" ").toString();
+                } else {
+                    return monomialString.append("+ ").append(coefficient).append(" ").toString();
+                }
+            } else if (power == 1) {
+                if (coefficient < 0) {
+                    if(coefficient==-1){
+                        return  monomialString.append("-").append("x").append(" ").toString();
+                    }
+                    return monomialString.append(coefficient).append("x").append(" ").toString();
+                } else if (coefficient == 1) {
+                    return monomialString.append("+ ").append("x").append(" ").toString();
+                } else {
+                    return monomialString.append("+ ").append(coefficient).append("x").append(" ").toString();
+                }
+            } else { //power>1
+                if (coefficient < 0) {
+                    if(coefficient==-1){
+                        return  monomialString.append("-").append("x^").append(power).append(" ").toString();
+                    }
+                    return monomialString.append(coefficient).append("x^").append(power).append(" ").toString();
+                } else if (coefficient == 1) {
+                    return monomialString.append("+ ").append("x^").append(power).append(" ").toString();
+                } else {
+                    return monomialString.append("+ ").append(coefficient).append("x^").append(power).append(" ").toString();
+                }
+            }
+        } else {
             return "";
+        }
     }
 
+    public String getIntMonomialString() {
+        StringBuilder monomialString = new StringBuilder();
 
+        if (coefficient != 0) {
+            if (power == 0) {
+                if (coefficient < 0) {
+                    return monomialString.append((int) coefficient).append(" ").toString();
+                } else {
+                    return monomialString.append("+ ").append((int) coefficient).append(" ").toString();
+                }
+            } else if (power == 1) {
+                if (coefficient < 0) {
+                    if(coefficient==-1){
+                        return  monomialString.append("-").append("x").append(" ").toString();
+                    }
+                    return monomialString.append((int) coefficient).append("x").append(" ").toString();
+                } else if (coefficient == 1) {
+                    return monomialString.append("+ ").append("x").append(" ").toString();
+                } else {
+                    return monomialString.append("+ ").append((int) coefficient).append("x").append(" ").toString();
+                }
+            } else { //power>1
+                if (coefficient < 0) {
+                    if(coefficient==-1){
+                        return  monomialString.append("-").append("x^").append(power).append(" ").toString();
+                    }
+                    return monomialString.append((int) coefficient).append("x^").append(power).append(" ").toString();
+                } else if (coefficient == 1) {
+                    return monomialString.append("+ ").append("x^").append(power).append(" ").toString();
+                } else {
+                    return monomialString.append("+ ").append((int) coefficient).append("x^").append(power).append(" ").toString();
+                }
+            }
+        } else {
+            return "";
+        }
+    }
 }
