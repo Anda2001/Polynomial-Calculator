@@ -31,16 +31,16 @@ public class Operations {
 
         for (Monomial myMonomial : secondPolynomial.getPolynomial()) {
             int degree = myMonomial.getPower(); //monomial degree
-            double coefficient1 = myMonomial.getCoefficient();
+            double coefficient2 = myMonomial.getCoefficient();
 
             Monomial searchedMonomial = polynomialDiff.findMonomialOfDegree(degree);
             if (searchedMonomial == null) {
-                coefficient1 = -coefficient1;
-                myMonomial.setCoefficient(coefficient1);
+                coefficient2 = -coefficient2;
+                myMonomial.setCoefficient(coefficient2);
                 polynomialDiff.getPolynomial().add(myMonomial);
             } else {
-                double coefficient2 = searchedMonomial.getCoefficient();
-                searchedMonomial.setCoefficient(coefficient2 - coefficient1);
+                double coefficient1 = searchedMonomial.getCoefficient();
+                searchedMonomial.setCoefficient(coefficient1 - coefficient2);
             }
         }
         polynomialDiff.orderByDegree();
@@ -55,9 +55,11 @@ public class Operations {
           double coeffp1 = myMonomial1.getCoefficient();
           secondPolynomial.getPolynomial().forEach(myMonomial2 -> {
               int powerp2 = myMonomial2.getPower();
-              int finalPower = powerp1 + powerp2;
               double coeffp2 = myMonomial2.getCoefficient();
+
+              int finalPower = powerp1 + powerp2;
               double finalCoeff = coeffp1 * coeffp2;
+
               Monomial searchedMonomial = polynomialMul.findMonomialOfDegree(finalPower);
               if (searchedMonomial == null) {
                   Monomial newMonom = new Monomial(finalPower, finalCoeff);
@@ -108,6 +110,7 @@ public class Operations {
             Monomial reminderMonom = p1.getFirstMonomial(p1);
             powerp1=reminderMonom.getPower();
             coeffp1=reminderMonom.getCoefficient();
+
             if(coeffp1==0){
 
                 p1.getPolynomial().remove(myMonomial);
