@@ -33,14 +33,11 @@ public class Monomial {
 
     public String getMonomialString() {
         StringBuilder monomialString = new StringBuilder();
-
         if (coefficient != 0) {
             if (power == 0) {
                 if (coefficient < 0) {
                     return monomialString.append(coefficient).append(" ").toString();
-                } else {
-                    return monomialString.append("+ ").append(coefficient).append(" ").toString();
-                }
+                } else {return monomialString.append("+ ").append(coefficient).append(" ").toString();}
             } else if (power == 1) {
                 if (coefficient < 0) {
                     if(coefficient==-1){
@@ -49,9 +46,7 @@ public class Monomial {
                     return monomialString.append(coefficient).append("x").append(" ").toString();
                 } else if (coefficient == 1) {
                     return monomialString.append("+ ").append("x").append(" ").toString();
-                } else {
-                    return monomialString.append("+ ").append(coefficient).append("x").append(" ").toString();
-                }
+                } else {return monomialString.append("+ ").append(coefficient).append("x").append(" ").toString();}
             } else { //power>1
                 if (coefficient < 0) {
                     if(coefficient==-1){
@@ -60,13 +55,9 @@ public class Monomial {
                     return monomialString.append(coefficient).append("x^").append(power).append(" ").toString();
                 } else if (coefficient == 1) {
                     return monomialString.append("+ ").append("x^").append(power).append(" ").toString();
-                } else {
-                    return monomialString.append("+ ").append(coefficient).append("x^").append(power).append(" ").toString();
-                }
+                } else {return monomialString.append("+ ").append(coefficient).append("x^").append(power).append(" ").toString();}
             }
-        } else {
-            return "";
-        }
+        } else {return "";}
     }
 
     public String getIntMonomialString() {
@@ -76,9 +67,7 @@ public class Monomial {
             if (power == 0) {
                 if (coefficient < 0) {
                     return monomialString.append((int) coefficient).append(" ").toString();
-                } else {
-                    return monomialString.append("+ ").append((int) coefficient).append(" ").toString();
-                }
+                } else {return monomialString.append("+ ").append((int) coefficient).append(" ").toString();}
             } else if (power == 1) {
                 if (coefficient < 0) {
                     if(coefficient==-1){
@@ -87,9 +76,7 @@ public class Monomial {
                     return monomialString.append((int) coefficient).append("x").append(" ").toString();
                 } else if (coefficient == 1) {
                     return monomialString.append("+ ").append("x").append(" ").toString();
-                } else {
-                    return monomialString.append("+ ").append((int) coefficient).append("x").append(" ").toString();
-                }
+                } else {return monomialString.append("+ ").append((int) coefficient).append("x").append(" ").toString();}
             } else { //power>1
                 if (coefficient < 0) {
                     if(coefficient==-1){
@@ -98,12 +85,8 @@ public class Monomial {
                     return monomialString.append((int) coefficient).append("x^").append(power).append(" ").toString();
                 } else if (coefficient == 1) {
                     return monomialString.append("+ ").append("x^").append(power).append(" ").toString();
-                } else {
-                    return monomialString.append("+ ").append((int) coefficient).append("x^").append(power).append(" ").toString();
-                }
+                } else {return monomialString.append("+ ").append((int) coefficient).append("x^").append(power).append(" ").toString();}
             }
-        } else {
-            return "";
-        }
+        } else {return "";}
     }
 }

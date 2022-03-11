@@ -3,7 +3,6 @@ package ro.tuc.pt;
 import ro.tuc.pt.gui.View;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class App
 {

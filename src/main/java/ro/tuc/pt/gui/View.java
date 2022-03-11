@@ -123,7 +123,7 @@ public class View extends JFrame {
         resultLabel.setFont(myFont);
         this.resultPolynomialLabel.setFont(myFont);
         resultLabel.setBounds(60, 250, 120, 30);
-        this.resultPolynomialLabel.setBounds(170, 250, 550, 30);
+        this.resultPolynomialLabel.setBounds(140, 250, 550, 30);
         polynomialPanel.add(resultLabel);
         polynomialPanel.add(this.resultPolynomialLabel);
 
