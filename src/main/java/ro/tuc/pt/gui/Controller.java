@@ -61,7 +61,6 @@ public class Controller implements ActionListener {
                                 }else{
                                     coefficient = Integer.parseInt(temp[0]);
                                 }
-
                             }
                         }
                         else if(subPolynomial.equals("x")){
